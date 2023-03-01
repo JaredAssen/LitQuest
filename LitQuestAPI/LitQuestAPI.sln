@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitQuestAPI", "LitQuestAPI\LitQuestAPI.csproj", "{D1B4AA0E-E2D3-4DAA-9E1A-8CF8E8A635FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1B4AA0E-E2D3-4DAA-9E1A-8CF8E8A635FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B4AA0E-E2D3-4DAA-9E1A-8CF8E8A635FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B4AA0E-E2D3-4DAA-9E1A-8CF8E8A635FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B4AA0E-E2D3-4DAA-9E1A-8CF8E8A635FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F77A93D2-2207-4598-AA53-E4E03DFCDE32}
+	EndGlobalSection
+EndGlobal
