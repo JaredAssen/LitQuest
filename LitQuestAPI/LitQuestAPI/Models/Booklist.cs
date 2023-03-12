@@ -5,9 +5,9 @@ namespace LitQuestAPI.Models;
 
 public partial class Booklist
 {
-    public string ListName { get; set; } = null!;
+    public string Listname { get; set; } = null!;
 
-    public int UserId { get; set; }
+    public int Userid { get; set; }
 
     public virtual User User { get; set; } = null!;
 }

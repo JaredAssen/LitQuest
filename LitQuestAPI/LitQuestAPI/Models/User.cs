@@ -16,6 +16,4 @@ public partial class User
     public virtual ICollection<Booklist> Booklists { get; } = new List<Booklist>();
 
     public virtual ICollection<Review> Reviews { get; } = new List<Review>();
-
-    public virtual ICollection<Write> Writes { get; } = new List<Write>();
 }
