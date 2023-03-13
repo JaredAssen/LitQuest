@@ -16,28 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `genre`
+-- Table structure for table `books`
 --
 
-DROP TABLE IF EXISTS `genre`;
+DROP TABLE IF EXISTS `books`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `genre` (
-  `Genre` varchar(45) NOT NULL,
-  `ISBN` varchar(13) NOT NULL,
-  PRIMARY KEY (`Genre`,`ISBN`),
-  KEY `fk_genre_book` (`ISBN`),
-  CONSTRAINT `fk_genre_book` FOREIGN KEY (`ISBN`) REFERENCES `book` (`ISBN`) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE `books` (
+  `bookid` int NOT NULL,
+  `listname` varchar(45) NOT NULL,
+  PRIMARY KEY (`bookid`,`listname`),
+  KEY `fk_books_booklist_idx` (`listname`),
+  CONSTRAINT `fk_books_booklist` FOREIGN KEY (`listname`) REFERENCES `booklist` (`listname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `genre`
+-- Dumping data for table `books`
 --
 
-LOCK TABLES `genre` WRITE;
-/*!40000 ALTER TABLE `genre` DISABLE KEYS */;
-/*!40000 ALTER TABLE `genre` ENABLE KEYS */;
+LOCK TABLES `books` WRITE;
+/*!40000 ALTER TABLE `books` DISABLE KEYS */;
+/*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-06 11:06:24
+-- Dump completed on 2023-03-13 11:01:58

@@ -23,13 +23,14 @@ DROP TABLE IF EXISTS `review`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `review` (
-  `ReviewID` int NOT NULL,
-  `UserID` int NOT NULL,
-  `Text` varchar(1000) DEFAULT NULL,
-  `Rating` float NOT NULL,
-  PRIMARY KEY (`ReviewID`,`UserID`),
-  KEY `fk_user_idx` (`UserID`),
-  CONSTRAINT `fk_review_user` FOREIGN KEY (`UserID`) REFERENCES `user` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE
+  `reviewid` int NOT NULL AUTO_INCREMENT,
+  `userid` int NOT NULL,
+  `text` varchar(1000) DEFAULT NULL,
+  `rating` float DEFAULT NULL,
+  `bookid` varchar(45) NOT NULL,
+  PRIMARY KEY (`reviewid`,`userid`),
+  KEY `fk_user_idx` (`userid`),
+  CONSTRAINT `fk_review_user` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-06 11:06:23
+-- Dump completed on 2023-03-13 11:01:59
