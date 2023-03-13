@@ -7,7 +7,6 @@ import {
 
 import HomePage from './pages/HomePage/HomePage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
-import ResultPage from './pages/ResultPage/ResultPage';
 import BookList from './components/BookList/BookList';
 import BookDetails from './components/BookDetails/BookDetails'
 import LoginPage from './pages/LoginPage/LoginPage';
