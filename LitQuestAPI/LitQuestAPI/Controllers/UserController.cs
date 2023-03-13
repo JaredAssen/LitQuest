@@ -1,4 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿#nullable disable
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using LitQuestAPI.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,13 +16,19 @@ namespace LitQuestAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        // GET: api/<ValuesController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly LitquestContext _context;
+        public UserController(LitquestContext context)
         {
-            return new string[] { "value1", "value2" };
+            _context = context;
         }
 
+        // GET: api/Review
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> GetReview()
+        {
+            return await _context.Users.ToListAsync();
+
+        }
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
         public string Get(int id)

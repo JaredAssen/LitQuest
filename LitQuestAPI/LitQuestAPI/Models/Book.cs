@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LitQuestAPI.Models;
 
-public partial class Books
+public partial class Book
 {
     public int Bookid { get; set; }
 

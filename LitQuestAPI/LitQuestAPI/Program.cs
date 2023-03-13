@@ -1,4 +1,5 @@
 
+using LitQuestAPI.Models;
 using Microsoft.EntityFrameworkCore;
 //using MovieMasterAPI.Models;
 //using LitQuestAPI.Models;
@@ -19,8 +20,8 @@ builder.Services.AddCors(options =>
 
 // Add services to the container.
 builder.Services.AddControllers();
-//builder.Services.AddDbContext<MovieMasterDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
-//builder.Services.AddDbContext<LitquestContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("DevConnection")));
+
+builder.Services.AddDbContext<LitquestContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("DevConnection")));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 //builder.Services.AddEndpointsApiExplorer();

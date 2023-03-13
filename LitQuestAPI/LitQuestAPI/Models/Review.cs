@@ -9,9 +9,9 @@ public partial class Review
 
     public int Userid { get; set; }
 
-    public string? Text { get; set; }
+    public string Text { get; set; }
 
-    public float? Rating { get; set; }
+    public float Rating { get; set; }
 
     public string Bookid { get; set; } = null!;
 

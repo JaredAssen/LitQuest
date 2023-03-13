@@ -17,7 +17,7 @@ public partial class LitquestContext : DbContext
 
     public virtual DbSet<Admin> Admins { get; set; }
 
-    public virtual DbSet<Books> Books { get; set; }
+    public virtual DbSet<Book> Books { get; set; }
 
     public virtual DbSet<Booklist> Booklists { get; set; }
 
@@ -30,7 +30,7 @@ public partial class LitquestContext : DbContext
         //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseMySQL("server=127.0.0.1;uid=root;pwd=Blackfoot69.;database=litquest");
+            optionsBuilder.UseMySQL("server=127.0.0.1;uid=root;pwd=____;database=litquest");
         }
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,7 +49,7 @@ public partial class LitquestContext : DbContext
                 .HasColumnName("password");
         });
 
-        modelBuilder.Entity<Books>(entity =>
+        modelBuilder.Entity<Book>(entity =>
         {
             entity.HasKey(e => new { e.Bookid, e.Listname }).HasName("PRIMARY");
 
