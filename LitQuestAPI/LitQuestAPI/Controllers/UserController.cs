@@ -6,7 +6,7 @@ namespace LitQuestAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class UserController : ControllerBase
     {
         // GET: api/<ValuesController>
         [HttpGet]
