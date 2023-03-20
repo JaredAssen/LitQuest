@@ -5,8 +5,12 @@ import coverImg from "../../images/cover_not_found.jpg";
 import "./BookDetails.css";
 import {FaArrowLeft} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+//import Rating from "../ReviewSection/Rating";
+import ReviewSection from '../ReviewSection/ReviewSection';
 
 const URL = "https://openlibrary.org/works/";
+
+
 
 const BookDetails = () => {
   const {id} = useParams();
@@ -20,7 +24,7 @@ const BookDetails = () => {
       try{
         const response = await fetch(`${URL}${id}.json`);
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
 
         if(data){
           const {description, title, covers, subject_places, subject_times, subjects} = data;
@@ -41,12 +45,17 @@ const BookDetails = () => {
         console.log(error);
         setLoading(false);
       }
+
+      
     }
     getBookDetails();
   }, [id]);
 
   if(loading) return <Loading />;
 
+
+
+  
   return (
     <section className='book-details'>
       <div className='container'>
@@ -78,8 +87,17 @@ const BookDetails = () => {
               <span className='fw-6'>Subjects: </span>
               <span>{book?.subjects}</span>
             </div>
+            
+            <div>
+              <ReviewSection />
+            </div>
           </div>
         </div>
+
+
+        
+
+
       </div>
     </section>
   )
