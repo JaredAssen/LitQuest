@@ -32,10 +32,10 @@ namespace LitQuestAPI.Controllers
         }
 
         // GET api/Review/1234567890123
-        [HttpGet("{Reviewid}")]
-        public async Task<ActionResult<Review>> GetReview(string Reviewid)
+        [HttpGet("{bookid}")]
+        public async Task<ActionResult<IEnumerable<Review>>> GetReview(string bookid)
         {
-            var Review = await _context.Reviews.FindAsync(Reviewid);
+            var Review = await _context.Reviews.Where(s => s.Bookid == bookid).ToListAsync();
 
             if (Review == null)
             {
