@@ -22,18 +22,25 @@ namespace LitQuestAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Review
+        // GET: api/User
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetReview()
         {
             return await _context.Users.ToListAsync();
 
         }
-        // GET api/<ValuesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET api/User/Username/Password
+        [HttpGet("{username}/{password}")]
+        public async Task<ActionResult<IEnumerable<User>>> GetReview(string username, string password)
         {
-            return "value";
+            var User = await _context.Users.Where(s => s.Username == username && s.Password == password).ToListAsync();
+
+            if (User == null)
+            {
+                return NotFound();
+            }
+
+            return User;
         }
 
         // POST api/<ValuesController>
