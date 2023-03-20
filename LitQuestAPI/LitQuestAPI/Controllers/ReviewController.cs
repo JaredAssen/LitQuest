@@ -75,9 +75,19 @@ namespace LitQuestAPI.Controllers
         //}
 
         // DELETE api/Review/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{revid}/{userid}")]
+        public async Task<IActionResult> DeleteReview(int revid, int userid)
         {
+            var review = await _context.Reviews.FindAsync(revid,userid);
+            if (review == null)
+            {
+                return NotFound();
+            }
+
+            _context.Reviews.Remove(review);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
         private bool ReviewExists(int id)
