@@ -1,5 +1,5 @@
 .profile {
-  max-width: 600px;
+  /*max-width: 600px;*/
   margin: 0 auto;
   padding: 20px;
   background-color: #caae8d;
@@ -60,3 +60,4 @@
 .profile .social li a:hover {
   color: #4078c0;
 }
+

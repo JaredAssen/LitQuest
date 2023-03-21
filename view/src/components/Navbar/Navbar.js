@@ -39,6 +39,11 @@ const Navbar = () => {
                 Register
               </Link>
             </li>
+            <li className = 'nav-item'>
+              <Link to = 'profile' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>
+                Profile
+              </Link>
+            </li>
           </ul>
           
         </div> 
