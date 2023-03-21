@@ -1,4 +1,4 @@
-body {
+.login-body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@ body {
     background-size: 100% 100%;
   }
   
-  h1 {
+  .login-h1 {
     text-align: center;
     padding-top: 50px;
     margin-bottom: 50px;
@@ -27,7 +27,7 @@ body {
     animation: gradient-text 3s ease-in-out infinite;
   }
   
-  form {
+  .login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,7 +37,7 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     min-width: 100%;
     width: 100%;
-    background-image: url('download.jpg');
+    /*background-image: url('download.jpg');*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -46,7 +46,7 @@ body {
     margin: 0 auto;
   }
   
-  label {
+  .login-label {
     font-weight: bold;
     margin-bottom: 10px;
     text-shadow: 2px 2px black;
@@ -54,9 +54,9 @@ body {
     font-size: 24px;
   }
   
-  input[type="text"],
-  input[type="password"],
-  input[type="email"] {
+  .login-input[type="text"],
+  .login-input[type="password"],
+  .login-input[type="email"] {
     border: none;
     border-radius: 5px;
     /*padding: 10px;*/
@@ -64,15 +64,15 @@ body {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
     min-width: 100%;
     width: 100%;
-    background-image: url('download.jpg');
+    /*background-image: url('download.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
     background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);*/
   }
   
-  input[type="submit"] {
+  .login-input[type="submit"] {
     background-color: #4CAF50;
     color: white;
     padding: 8px 16px;
@@ -82,7 +82,7 @@ body {
     transition: background-color 0.2s ease-in-out;
   }
   
-  input[type="submit"]:hover {
+  .login-input[type="submit"]:hover {
     background-color: #3e8e41;
   }
   

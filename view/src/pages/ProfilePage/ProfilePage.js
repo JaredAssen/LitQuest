@@ -1,9 +1,12 @@
 import React from 'react';
-import './Profile.css';
+import './ProfilePage.css';
+import Navbar from '../../components/Navbar/Navbar';
 
 function Profile() {
+  
   return (
     <div className="profile">
+      <Navbar />
       <header>
         <h1>User Name</h1>
         <p>Status: Readng</p>
@@ -24,8 +27,9 @@ function Profile() {
           </div>
         </div>
       </section>
-      <section className="reviews">
-        <h2>Recent Reviews</h2>
+      <section className="reviewed-books">
+        <h2>Reviewed Books</h2>
+        
         <div className="review">
           <img src="https://blog.placeit.net/wp-content/uploads/2017/12/book_icon-150x150.png" alt="Book cover" />
           <div className="review-details">

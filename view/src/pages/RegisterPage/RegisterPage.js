@@ -33,18 +33,18 @@ const RegisterPage = () => {
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <form name="register" onSubmit={validateForm}>
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" name="username" /><br /><br />
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" /><br /><br />
-        <label htmlFor="confirm_password">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password" /><br /><br />
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" /><br /><br />
-        <input type="submit" value="Submit" />
+    <div className = 'login-body'>
+      <h1 className = 'login-h1'>Sign Up</h1>
+      <form className = 'login-form' name="register" onSubmit={validateForm}>
+        <label className = 'login-label' htmlFor="username">Username:</label>
+        <input className = 'login-input' type="text" id="username" name="username" /><br /><br />
+        <label className = 'login-label' htmlFor="password">Password:</label>
+        <input className = 'login-input' type="password" id="password" name="password" /><br /><br />
+        <label className = 'login-label' htmlFor="confirm_password">Confirm Password:</label>
+        <input className = 'login-input' type="password" id="confirm_password" name="confirm_password" /><br /><br />
+        <label className = 'login-label' htmlFor="email">Email:</label>
+        <input className = 'login-input' type="email" id="email" name="email" /><br /><br />
+        <input className = 'login-input' type="submit" value="Submit" />
       </form>
     </div>
   );

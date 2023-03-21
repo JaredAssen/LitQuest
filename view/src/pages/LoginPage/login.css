@@ -1,14 +1,15 @@
-body {
+
+.login-body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif; 
-    /*background-image: url('download.jpg');*/
+    background-image: url('download.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
 }
 
-h1 {
+.h1 {
     text-align: center; 
     padding-top: 50px; 
     margin-bottom: 50px; 
@@ -25,7 +26,7 @@ h1 {
 }
 
 
-form {
+.login-form {
     display: flex;
     flex-direction: column; 
     align-items: center;
@@ -39,28 +40,28 @@ form {
     background-size: 100% 100%;
     backdrop-filter: blur(5px);
 }
-label {
+.login-label {
     font-weight: bold; 
     margin-bottom: 10px; 
     text-shadow: 2px 2px black;
-    color: #FFFFFF;
+    color: #faf8fc;
     font-size: 24px; 
 }
-input[type="text"],
-input[type="password"] {
+.login-input[type="text"],
+.login-input[type="password"] {
     border: none;
     border-radius: 5px; 
     padding: 10px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    width: 100%; 
+    /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
     background-image: url('download.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);*/
 }
-input[type="button"] {
+.login-input[type="button"] {
     background-color: #4CAF50;
     color: white;
     padding: 8px 16px;
@@ -68,6 +69,6 @@ input[type="button"] {
     border-radius: 3px;
     cursor: pointer;
 }
-input[type="button"]:hover {
+.login-input[type="button"]:hover {
     background-color: #3e8e41;
 }
