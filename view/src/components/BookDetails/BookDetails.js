@@ -67,6 +67,10 @@ const BookDetails = () => {
         <div className='book-details-content grid'>
           <div className='book-details-img'>
             <img src = {book?.cover_img} alt = "cover img" />
+            <button className="save-book-button" onClick = {() => {
+                alert(`Are you sure you want to save this book ?`);
+              } 
+            }>Save Book</button>
           </div>
           <div className='book-details-info'>
             <div className='book-details-item title'>
@@ -89,7 +93,7 @@ const BookDetails = () => {
             </div>
             
             <div>
-              <ReviewSection />
+              <ReviewSection bookid={id} />
             </div>
           </div>
         </div>
