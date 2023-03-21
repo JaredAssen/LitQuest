@@ -7,7 +7,7 @@ import {
 
 import HomePage from './pages/HomePage/HomePage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
-import ResultPage from './pages/ResultPage/ResultPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 import BookList from './components/BookList/BookList';
 import BookDetails from './components/BookDetails/BookDetails'
 import LoginPage from './pages/LoginPage/LoginPage';
@@ -19,12 +19,14 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path = "/" element = {<HomePage />}>
-          <Route path = "register" element = {<RegisterPage />}/>
-          <Route path = "login" element = {<LoginPage />}/>
           <Route path = "book" element = {<BookList/>}/>
-          <Route path = "/book/:id" element = {<BookDetails />}/>
+          <Route path = "book/:id" element = {<BookDetails />}/>
+          
       
         </Route>
+        <Route path = "profile" element = {<ProfilePage />}/>
+        <Route path = "login" element = {<LoginPage />}/>
+        <Route path = "register" element = {<RegisterPage />}/>
       </Routes>
 
     </BrowserRouter>
