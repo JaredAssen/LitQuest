@@ -22,36 +22,106 @@ namespace LitQuestAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Review
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetReview()
+        
+        // GET api/User/Username/Password
+        [HttpGet("{username}/{password}")]
+        public async Task<ActionResult<IEnumerable<User>>> GetUser(string username, string password)
         {
-            return await _context.Users.ToListAsync();
+            var user = await _context.Users.Where(s => s.Username == username && s.Password == password).ToListAsync();
+            if (user == null)
+            {
+                return NotFound();
+            }
 
-        }
-        // GET api/<ValuesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
+            return user;
         }
 
         // POST api/<ValuesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<User>> PostUser(User User)
         {
+            _context.Users.Add(User);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (UserExists(User.Username))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return CreatedAtAction("GetUser", new { userid = User.Userid }, User);
         }
+
+        
 
         // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{userid}")]
+        public async Task<IActionResult> PutUser(int userid, User user)
         {
+            if (userid != user.Userid)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(user).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserExists(userid))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
+
+
         // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{userid}")]
+        public async Task<IActionResult> DeleteUser(int userid)
         {
+            var user = await _context.Users.FindAsync(userid);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+
+
+        private bool UserExists(string username)
+        {
+            var user = _context.Users.Where(s => s.Username == username).ToListAsync();
+            return !(user == null);
+        }
+
+        private bool UserExists(int userid)
+        {
+            var user = _context.Users.Where(s => s.Userid == userid).ToListAsync();
+            return !(user == null);
         }
     }
 }
