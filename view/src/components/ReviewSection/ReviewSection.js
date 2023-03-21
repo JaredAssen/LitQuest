@@ -4,10 +4,10 @@ import AddReview from './AddReview'
 import Button from '../Button'
 import {useState} from 'react'
 
-//this is a function
-const ReviewSection=()=> {//components can be functions
+const ReviewSection=({bookid})=> {//passed book id into this function
   const [showAddReview,setShowAddReview]=useState(false)
-  const [reviews,setReviews] = useState([
+  const [avgRating] = useState(4.3)//sample average rating
+  const [reviews,setReviews] = useState([//example review data
     {    
         id: 1,
         username: 'Anna',
@@ -38,13 +38,7 @@ const ReviewSection=()=> {//components can be functions
     setReviews([...reviews,newReview])
   }
 
-  //delete review function, which takes a specific id
-  /*const deleteReview = (id) => {
-    setReviews(reviews.filter((review)=> review.id !==id))
-  }*/
-
   const onAdd = () => setShowAddReview(!showAddReview);
-
 
   return (
     <div>
@@ -56,6 +50,8 @@ const ReviewSection=()=> {//components can be functions
       {showAddReview && <AddReview onAdd = {addReview}/>}
       {/*display reviews unless there are no reviews*/}
       <h3>User Reviews</h3>
+      <p>Avg. Rating: {avgRating}</p>
+
       {reviews.length > 0 ? (
         <Reviews reviews = {reviews}/>
       ) : (

@@ -8,7 +8,7 @@ import {
 import HomePage from './pages/HomePage/HomePage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-import BookList from './components/BookList/BookList';
+import Results from './components/Results/Results';
 import BookDetails from './components/BookDetails/BookDetails'
 import LoginPage from './pages/LoginPage/LoginPage';
 import { AppProvider } from './context';
@@ -19,7 +19,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path = "/" element = {<HomePage />}>
-          <Route path = "book" element = {<BookList/>}/>
+          <Route path = "book" element = {<Results/>}/>
           <Route path = "book/:id" element = {<BookDetails />}/>
           
       
