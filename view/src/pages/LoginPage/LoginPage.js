@@ -15,16 +15,16 @@ const LoginPage = () => {
   };
   
   return (
-    <div>
-      <h1>Login Page</h1>
-      <form>
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
+    <div className = 'login-body'>
+      <h1 className = 'h1'>Login Page</h1>
+      <form className = 'login-form'>
+        <label className = 'login-label' htmlFor="username">Username:</label>
+        <input className = 'login-input' type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
         
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
+        <label className = 'login-label' htmlFor="password">Password:</label>
+        <input className = 'login-input' type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
         
-        <input type="button" value="Login" onClick={login} />
+        <input className = 'login-input' type="button" value="Login" onClick={login} />
       </form>
     </div>
   );
