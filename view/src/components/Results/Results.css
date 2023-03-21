@@ -63,3 +63,16 @@
         max-width: 120px;
     }
 }
+.save-book-button {
+    background-color: #379555;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+.save-book-button:hover {
+    background-color: #395c22;
+}
