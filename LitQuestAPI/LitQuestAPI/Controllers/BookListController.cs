@@ -1,4 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿#nullable disable
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using LitQuestAPI.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -6,38 +14,80 @@ namespace LitQuestAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BookListController : ControllerBase
+    public class BooklistController : ControllerBase
     {
-        // GET: api/<ValuesController1>
+
+        private readonly LitquestContext _context;
+        public BooklistController(LitquestContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/Booklist
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult<IEnumerable<Booklist>>> GetBooklist()
         {
-            return new string[] { "value1", "value2" };
+            return await _context.Booklists.ToListAsync();
+
         }
 
-        // GET api/<ValuesController1>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET api/Booklist/1/MyList1
+        [HttpGet("{userid}/{listname}")]
+        public async Task<ActionResult<IEnumerable<Booklist>>> GetBooklist(int userid, string listname)
         {
-            return "value";
+            var Booklist = await _context.Booklists.Where(s => s.Listname == listname && s.Userid == userid).ToListAsync();
+
+            if (Booklist == null)
+            {
+                return NotFound();
+            }
+
+            return Booklist;
         }
 
-        // POST api/<ValuesController1>
+        // POST api/Booklist
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<Booklist>> PostBooklist(Booklist Booklist)
         {
+            _context.Booklists.Add(Booklist);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (BooklistExists(Booklist.Listname, Booklist.Userid))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return CreatedAtAction("GetBooklist", new { listname = Booklist.Listname }, Booklist);
         }
 
-        // PUT api/<ValuesController1>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // DELETE api/Booklist/5/MyList1
+        [HttpDelete("{userid}/{listname}")]
+        public async Task<IActionResult> DeleteBooklist(int userid, string listname)
         {
+            var Booklist = await _context.Booklists.FindAsync(userid, listname);
+            if (Booklist == null)
+            {
+                return NotFound();
+            }
+
+            _context.Booklists.Remove(Booklist);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
-        // DELETE api/<ValuesController1>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        private bool BooklistExists(string listname, int userid)
         {
+            return _context.Booklists.Any(e => e.Listname == listname && e.Userid == userid);
         }
     }
 }

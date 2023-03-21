@@ -31,7 +31,7 @@ namespace LitQuestAPI.Controllers
         }
         // GET api/User/Username/Password
         [HttpGet("{username}/{password}")]
-        public async Task<ActionResult<IEnumerable<User>>> GetReview(string username, string password)
+        public async Task<ActionResult<IEnumerable<User>>> GetUser(string username, string password)
         {
             var User = await _context.Users.Where(s => s.Username == username && s.Password == password).ToListAsync();
 
