@@ -12,6 +12,7 @@ const Navbar = () => {
   const logout = () => {
     console.log("logout");
     window.loggedin = false;
+    window.loggedUserId = '0';
     window.location.reload();
   }
 
