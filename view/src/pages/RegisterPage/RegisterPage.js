@@ -1,6 +1,7 @@
 
 import './register.css';
 import React from 'react';
+import Navbar from '../../components/Navbar/Navbar';
 
 const RegisterPage = () => {
   const validateForm = () => {
@@ -34,7 +35,8 @@ const RegisterPage = () => {
 
   return (
     <div className = 'login-body'>
-      <h1 className = 'login-h1'>Sign Up</h1>
+      <Navbar />
+      <h1 className = 'login-h1'>Register</h1>
       <form className = 'login-form' name="register" onSubmit={validateForm}>
         <label className = 'login-label' htmlFor="username">Username:</label>
         <input className = 'login-input' type="text" id="username" name="username" /><br /><br />
