@@ -2,9 +2,10 @@
 import './Register.css';
 import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {    
-
+  const navigate = useNavigate();
   const validateForm = () => {
     
     const username = document.forms["register"]["username"].value;
@@ -66,6 +67,7 @@ const Register = () => {
             console.log(err.message);
     });
     console.log("after fetch");
+    navigate("/");
     //return true;
   };
 
@@ -82,7 +84,7 @@ const Register = () => {
         <input className = 'login-input' type="password" id="confirm_password" name="confirm_password" /><br /><br />
         <label className = 'login-label' htmlFor="email">Email:</label>
         <input className = 'login-input' type="email" id="email" name="email" /><br /><br />
-        <input className = 'login-input' type="button" value="Login" onClick={validateForm} />
+        <input className = 'login-input' type="button" value="Submit" onClick={validateForm} />
       </form>
     </div>
   );
