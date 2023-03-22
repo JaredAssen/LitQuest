@@ -13,6 +13,8 @@ import BookDetails from './components/BookDetails/BookDetails'
 import LoginPage from './pages/LoginPage/LoginPage';
 import { AppProvider } from './context';
 
+window.loggedin = false;
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AppProvider>
