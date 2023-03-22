@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const checkLogin = () => {
     if(!window.loggedin){
-      return <Link to = 'login' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Login</Link> 
+      return <Link to = '/login' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Login</Link> 
     }
     else{
       return <Link to = '/' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1' onClick={logout}>Logout</Link>
@@ -54,12 +54,12 @@ const Navbar = () => {
               </Link> */}
             </li>
             <li className = 'nav-item'>
-              <Link to = 'register' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>
+              <Link to = '/register' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>
                 Register
               </Link>
             </li>
             <li className = 'nav-item'>
-              <Link to = 'profile' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>
+              <Link to = '/profile' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>
                 Profile
               </Link>
             </li>
