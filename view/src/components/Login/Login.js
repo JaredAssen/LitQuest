@@ -12,7 +12,6 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  //const [loggedin, setLogged] = useState(false);
   
     async function login(){
       await fetch(`http://localhost:5034/api/User/${username}/${password}`, {mode:'cors'})
@@ -21,12 +20,8 @@ const Login = () => {
           console.log(data);
           if (Object.keys(data).length > 0) {
             alert("Success");
-            //setLogged(true);
-            //console.log(loggedin);
             window.loggedin = true;
-            console.log(window.loggedin);
-            // Save user information to user model
-            // Change login to logout
+            window.loggedUserId = data[0].userid;
             // Route home
             navigate("/");
           } else {
