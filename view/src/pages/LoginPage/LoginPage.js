@@ -1,21 +1,43 @@
 
 import './login.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import Navbar from '../../components/Navbar/Navbar';
+import User from '../../models/User';
+import { async } from 'q';
 
 const LoginPage = () => {
+  
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
   
-  const login = () => {
-    if (username === 'admin' && password === '123') {
-      alert('Login successful!');
-    } else {
-      alert('Incorrect username or password.');
+    async function login(){
+      await fetch(`http://localhost:5034/api/User/${username}/${password}`, {mode:'cors'})
+       .then((response) => response.json())
+       .then((data) => {
+          console.log(data);
+          if (Object.keys(data).length > 0) {
+            alert("Success");
+            //logged = true;
+            // Save userid from data to query booklist when accessing data page
+            // Change login to logout
+            // Route home
+            navigate("/");
+          } else {
+            alert('Incorrect username or password.');
+          }
+       })
+       .catch((err) => {
+          console.log(err.message);
+       });
     }
-  };
   
   return (
     <div className = 'login-body'>
+      <Navbar />
       <h1 className = 'h1'>Login Page</h1>
       <form className = 'login-form'>
         <label className = 'login-label' htmlFor="username">Username:</label>

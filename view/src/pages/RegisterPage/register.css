@@ -1,3 +1,10 @@
+.login-content{
+  min-height: 75vh;
+  background: linear-gradient(rgba(205, 173, 230, 0), rgba(148, 131, 88, 0.358)), url("../../images/book-image.jpg") center/cover no-repeat;
+  
+  flex-direction: column;
+}
+
 .login-body {
     margin: 0;
     padding: 0;
