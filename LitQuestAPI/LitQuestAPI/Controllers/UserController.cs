@@ -22,7 +22,7 @@ namespace LitQuestAPI.Controllers
             _context = context;
         }
 
-        
+
         // GET api/User/Username/Password
         [HttpGet("{username}/{password}")]
         public async Task<ActionResult<IEnumerable<User>>> GetUser(string username, string password)
@@ -60,7 +60,7 @@ namespace LitQuestAPI.Controllers
             return CreatedAtAction("GetUser", new { userid = User.Userid }, User);
         }
 
-        
+
 
         // PUT api/<ValuesController>/5
         [HttpPut("{userid}")]

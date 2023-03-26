@@ -7,11 +7,14 @@ import {
 
 import HomePage from './pages/HomePage/HomePage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
-import ResultPage from './pages/ResultPage/ResultPage';
-import BookList from './components/BookList/BookList';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
+import Results from './components/Results/Results';
 import BookDetails from './components/BookDetails/BookDetails'
 import LoginPage from './pages/LoginPage/LoginPage';
 import { AppProvider } from './context';
+
+window.loggedin = false;
+window.loggedUserId = '0'; // Use 0 for guest user
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,12 +22,13 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path = "/" element = {<HomePage />}>
-          <Route path = "register" element = {<RegisterPage />}/>
-          <Route path = "login" element = {<LoginPage />}/>
-          <Route path = "book" element = {<BookList/>}/>
-          <Route path = "/book/:id" element = {<BookDetails />}/>
-      
+          <Route path = "book" element = {<Results/>}/>
+          <Route path = "book/:id" element = {<BookDetails />}/>
         </Route>
+        
+        <Route path = "profile" element = {<ProfilePage />}/>
+        <Route path = "login" element = {<LoginPage />}/>
+        <Route path = "register" element = {<RegisterPage />}/>
       </Routes>
 
     </BrowserRouter>

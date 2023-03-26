@@ -3,12 +3,29 @@ import {Link} from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../images/logo.jpg';
 import {HiOutlineMenuAlt3} from 'react-icons/hi';
+import Login from '../Login/Login';
 
 const Navbar = () => {
   const [toggleMenu,setToggleMenu] = useState(false);
   const handleNavBar = () => setToggleMenu(!toggleMenu);
+
+  const logout = () => {
+    console.log("logout");
+    window.loggedin = false;
+    window.loggedUserId = '0';
+    window.location.reload();
+  }
+
+  const checkLogin = () => {
+    if(!window.loggedin){
+      return <Link to = '/login' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Login</Link> 
+    }
+    else{
+      return <Link to = '/' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1' onClick={logout}>Logout</Link>
+    }
+  }
+
   return (
-    
     <nav className = 'navbar' id = 'navbar'>
       <div className = 'container navbar-content flex'>
         <div className = 'brand-and-toggler flex flex-sb'>
@@ -30,13 +47,20 @@ const Navbar = () => {
         'navbar-collapse'}>
           <ul className = 'navbar-nav'>
             <li className = 'nav-item'>
-              <Link to = 'login' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>
+              { checkLogin()
+              
+              /* <Link to = 'login' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>
                 Login
+              </Link> */}
+            </li>
+            <li className = 'nav-item'>
+              <Link to = '/register' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>
+                Register
               </Link>
             </li>
             <li className = 'nav-item'>
-              <Link to = 'register' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>
-                Register
+              <Link to = '/profile' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>
+                Profile
               </Link>
             </li>
           </ul>
@@ -45,7 +69,6 @@ const Navbar = () => {
       </div>
 
     </nav>
-    
   )
 }
 

@@ -1,11 +1,14 @@
-
+import React from 'react';
+import Register from '../../components/Register/Register';
+import {Outlet} from 'react-router-dom';
 
 const RegisterPage = () => {
-  return (
-    <div>
-      Register
-    </div>
+  return(
+    <main>
+    <Register />
+    <Outlet />
+  </main>
   )
-}
+};
 
-export default RegisterPage
+export default RegisterPage;

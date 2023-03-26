@@ -32,10 +32,10 @@ namespace LitQuestAPI.Controllers
         }
 
         // GET api/Review/1234567890123
-        [HttpGet("{Reviewid}")]
-        public async Task<ActionResult<Review>> GetReview(string Reviewid)
+        [HttpGet("{bookid}")]
+        public async Task<ActionResult<IEnumerable<Review>>> GetReview(string bookid)
         {
-            var Review = await _context.Reviews.FindAsync(Reviewid);
+            var Review = await _context.Reviews.Where(s => s.Bookid == bookid).ToListAsync();
 
             if (Review == null)
             {
@@ -68,16 +68,51 @@ namespace LitQuestAPI.Controllers
 
             return CreatedAtAction("GetReview", new { id = Review.Reviewid }, Review);
         }
-        // PUT api/Review/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
+
+        // Updates review with id = reviewid
+        [HttpPut("{reviewid}")]
+        public async Task<IActionResult> PutReview(int reviewid, Review review)
+        {
+            if (reviewid != review.Reviewid)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(review).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ReviewExists(reviewid))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
 
         // DELETE api/Review/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{revid}/{userid}")]
+        public async Task<IActionResult> DeleteReview(int revid, int userid)
         {
+            var review = await _context.Reviews.FindAsync(revid,userid);
+            if (review == null)
+            {
+                return NotFound();
+            }
+
+            _context.Reviews.Remove(review);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
         private bool ReviewExists(int id)

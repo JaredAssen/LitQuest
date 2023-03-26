@@ -13,13 +13,15 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+                          builder.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
 
                       });
 });
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers(
+    options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true
+);
 
 builder.Services.AddDbContext<LitquestContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("DevConnection")));
 
