@@ -21,7 +21,7 @@ const Navbar = () => {
   const checkLogin = () => {
     // localStorage survives browser refresh while window variable does not
     let udata = localStorage.getItem("user");
-    if(!window.loggedin){
+    if(!udata){
       localStorage.removeItem("user");
       return <Link to = '/login' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Login</Link> 
     }
