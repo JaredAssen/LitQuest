@@ -26,6 +26,7 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
+  `about` varchar(50),
   `userid` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`userid`),
   UNIQUE(`username`)
