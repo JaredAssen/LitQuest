@@ -45,6 +45,20 @@ namespace LitQuestAPI.Controllers
             return Review;
         }
 
+        // GET api/Review/1234567890123
+        [HttpGet("{userid}")]
+        public async Task<ActionResult<IEnumerable<Review>>> GetReview(int userid)
+        {
+            var Review = await _context.Reviews.Where(s => s.Userid == userid).ToListAsync();
+
+            if (Review == null)
+            {
+                return NotFound();
+            }
+
+            return Review;
+        }
+
         // POST api/Review
         [HttpPost]
         public async Task<ActionResult<Review>> PostReview(Review Review)
