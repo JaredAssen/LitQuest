@@ -9,13 +9,14 @@ class User extends Component {
       password: '',
       email: '',
       userid: null,
+      about: null,
       booklists: [],
       reviews: []
     };
   }
 
   render() {
-    const { username, password, email, userid, booklists, reviews } = this.state;
+    const { username, password, email, userid, about, booklists, reviews } = this.state;
 
     return (
       <div>

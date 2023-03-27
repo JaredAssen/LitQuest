@@ -13,11 +13,16 @@ const Navbar = () => {
     console.log("logout");
     window.loggedin = false;
     window.loggedUserId = '0';
+    localStorage.removeItem("user");
+    localStorage.removeItem("loggedin");
     window.location.reload();
   }
 
   const checkLogin = () => {
+    // localStorage survives browser refresh while window variable does not
+    let udata = localStorage.getItem("user");
     if(!window.loggedin){
+      localStorage.removeItem("user");
       return <Link to = '/login' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Login</Link> 
     }
     else{
