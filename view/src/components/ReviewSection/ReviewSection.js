@@ -3,6 +3,7 @@ import Reviews from './Reviews'
 import AddReview from './AddReview'
 import Button from '../Button'
 import {useState} from 'react'
+import StarRating from './StarRating'
 
 const ReviewSection=({bookid})=> {//passed book id into this function
   const [showAddReview,setShowAddReview]=useState(false)
@@ -50,7 +51,12 @@ const ReviewSection=({bookid})=> {//passed book id into this function
       {showAddReview && <AddReview onAdd = {addReview}/>}
       {/*display reviews unless there are no reviews*/}
       <h3>User Reviews</h3>
-      <p>Avg. Rating: {avgRating}</p>
+      <div className = 'beside'>
+        <p>Avg. Rating: </p>
+        <StarRating value={3} />
+      </div>
+      
+      
 
       {reviews.length > 0 ? (
         <Reviews reviews = {reviews}/>
