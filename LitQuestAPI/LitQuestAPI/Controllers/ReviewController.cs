@@ -12,8 +12,8 @@ using LitQuestAPI.Models;
 
 namespace LitQuestAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ReviewController : ControllerBase
     {
 

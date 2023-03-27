@@ -12,14 +12,17 @@ using LitQuestAPI.Models;
 
 namespace LitQuestAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly LitquestContext _context;
-        public UserController(LitquestContext context)
+        private readonly ILogger _logger;
+
+        public UserController(LitquestContext context, ILogger<UserController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
 
@@ -63,11 +66,13 @@ namespace LitQuestAPI.Controllers
 
 
         // PUT api/<ValuesController>/5
-        [HttpPut("{userid}")]
-        public async Task<IActionResult> PutUser(int userid, User user)
+        [HttpPut("{userid:int}")]
+        public async Task<IActionResult> PutUser(int userid, [FromBody]User user)
         {
+            _logger.LogInformation($"received PUT for userid: {userid}");
             if (userid != user.Userid)
             {
+                _logger.LogInformation($"userid is invalid userid!=user.Userid: {userid}!={user.Userid}");
                 return BadRequest();
             }
 

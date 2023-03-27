@@ -82,7 +82,7 @@ const Register = () => {
         <input className = 'login-input' type="password" id="confirm_password" name="confirm_password" /><br /><br />
         <label className = 'login-label' htmlFor="email">Email:</label>
         <input className = 'login-input' type="email" id="email" name="email" /><br /><br />
-        <input className = 'login-input' type="button" value="Login" onClick={validateForm} />
+        <input className = 'login-input' type="button" value="Register" onClick={validateForm} />
       </form>
     </div>
   );

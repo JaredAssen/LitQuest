@@ -62,3 +62,49 @@
   }
   
   
+.profile-form {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  background-color: #FFFFFF; 
+  border-radius: 10px; 
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  background-image: url('../../pages/LoginPage/download.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  backdrop-filter: blur(5px);
+}
+.profile-label {
+  font-weight: bold; 
+  margin-bottom: 10px; 
+  text-shadow: 2px 2px black;
+  color: #faf8fc;
+  font-size: 24px; 
+}
+.profile-input[type="text"],
+.profile-input[type="password"] {
+  border: none;
+  border-radius: 5px; 
+  padding: 4px;
+  margin-bottom: 20px;
+  /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  background-image: url('download.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  backdrop-filter: blur(5px);*/
+}
+.profile-input[type="button"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 4px 16px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.profile-input[type="button"]:hover {
+  background-color: #3e8e41;
+}
