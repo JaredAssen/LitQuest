@@ -58,7 +58,7 @@ const Profile = () => {
           console.log(err.message);
         });
       };  
-      
+      window.location.reload(false);
     }
 
   return (
