@@ -22,6 +22,7 @@ const Login = () => {
             alert("Success");
             window.loggedin = true;
             window.loggedUserId = data[0].userid;
+            alert(JSON.stringify(data));
             let udata = JSON.stringify(data[0]);
             localStorage.setItem("user", udata);
             // Route home

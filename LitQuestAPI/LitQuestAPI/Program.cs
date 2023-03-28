@@ -25,6 +25,16 @@ builder.Services.AddControllers(
 
 builder.Services.AddDbContext<LitquestContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("DevConnection")));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000",
+                                "https://openlibrary.org/");
+        });
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 //builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();

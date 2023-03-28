@@ -31,9 +31,9 @@ namespace LitQuestAPI.Controllers
 
         }
 
-        // GET api/Review/1234567890123
-        [HttpGet("{bookid}")]
-        public async Task<ActionResult<IEnumerable<Review>>> GetReview(string bookid)
+        // GET api/Review/BookReview/AB1237890123
+        [HttpGet("BookReviews/{bookid}")]
+        public async Task<ActionResult<IEnumerable<Review>>> GetBookReviews(string bookid)
         {
             var Review = await _context.Reviews.Where(s => s.Bookid == bookid).ToListAsync();
 
@@ -44,6 +44,21 @@ namespace LitQuestAPI.Controllers
 
             return Review;
         }
+
+        // GET api/Review/UserReviews/1
+        [HttpGet("UserReviews/{userid}")]
+        public async Task<ActionResult<IEnumerable<Review>>> GetUserReviews(int userid)
+        {
+            var Review = await _context.Reviews.Where(u => u.Userid == userid).ToListAsync();
+
+            if (Review == null)
+            {
+                return NotFound();
+            }
+
+            return Review;
+        }
+
 
         // POST api/Review
         [HttpPost]

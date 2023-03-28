@@ -1,7 +1,7 @@
 import './Profile.css';
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
-import User from '../../models/User';
+import UserReviewTable from '../Reviews/UserReviews';
 
 const Profile = () => {
 
@@ -89,7 +89,7 @@ const Profile = () => {
         </div>
          </section>*/}
         <section className="reviewed-books">
-          <h2>Reviewed Books</h2>
+          <UserReviewTable />
           <div className="review">
             <img src="https://blog.placeit.net/wp-content/uploads/2017/12/book_icon-150x150.png" alt="Book cover" />
             <div className="review-details">
