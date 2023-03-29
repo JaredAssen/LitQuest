@@ -1,7 +1,7 @@
 import React,{useState,useContext,useEffect} from 'react';
 import { useCallback } from 'react';
 const URL = "http://openlibrary.org/search.json?author=";
-const recommendationContext = React.createContext("");
+const recommendationContext = React.createContext();
 
 const RecommendProvider = ({children})=>{
     const [searchTerm, setSearchTerm]= useState("James Patterson");

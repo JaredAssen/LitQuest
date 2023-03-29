@@ -1,6 +1,7 @@
 import './Recommendations.css';
 import { useRef, useEffect } from 'react';
 import { useGlobalRecommendContext } from '../../recommendationContext';
+import { useGlobalContext } from '../../context';
 import React from 'react';
 import Book from "../Results/Book";
 import Loading from "../Loader/Loader";
@@ -8,8 +9,9 @@ import coverImg from "../../images/cover_not_found.jpg";
 
 //https://covers.openlibrary.org/b/id/240727-S.jpg
 
-const Recommendations = ({bookid}) => {
-    const { books, loading, resultTitle } = useGlobalRecommendContext();
+const Recommendations = (authors) => {
+    const { books, loading, resultTitle, setSearchTerm } = useGlobalRecommendContext();
+    setSearchTerm("Michael Crichton");
     const booksWithCovers = books.map((singleBook) => {
         return {
             ...singleBook,
