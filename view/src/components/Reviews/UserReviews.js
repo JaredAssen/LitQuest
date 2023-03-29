@@ -1,5 +1,6 @@
 import './UserReviews.css';
 import React, { Component, useState, useEffect } from 'react';
+import { json } from 'react-router-dom';
 
 export default class UserReviewTable extends Component {
   static displayName = UserReviewTable.name;
@@ -25,26 +26,39 @@ export default class UserReviewTable extends Component {
   }
 
   static renderReviewsTable(user_reviews) {
-    return (
-      <table className="table table-striped" aria-labelledby="tableLabel">
-        <thead>
-          <tr>
-            <th>Book Id</th>
-            <th>Rating</th>
-            <th>Review</th>
-          </tr>
-        </thead>
-        <tbody>
-          {user_reviews.map(review =>
-            <tr key={review.reviewid}>
-              <td>{review.bookid}</td>
-              <td>{review.rating}</td>
-              <td>{review.text}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    );
+
+    const showBook = (review) => {
+      return (
+        <div>
+          <div className='book-item-img'>
+            <img src={review.cover_img} alt="cover" />
+          </div>        
+          <div className='book-item flex flex-column flex-sb'>
+            <div className='book-item-info text-center'>
+              <div className='book-item-info-item publish-year fs-15'>
+                <span className='text-capitalize fw-7'>Title: </span>
+                <span>{review.title}</span>
+              </div>
+              <div className='book-item-info-item author fs-15'>
+                <span className='text-capitalize fw-7'>Author: </span>
+                <span>{review.author}</span>
+              </div>
+              <div className='book-item-info-item edition-count fs-15'>
+                <span className='text-capitalize fw-7'>Rating: </span>
+                <span>{review.rating}</span>
+              </div>
+      
+              <div className='book-item-info-item publish-year fs-15'>
+                <span className='text-capitalize fw-7'>Comment: </span>
+                <span>{review.text}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  
+    return (user_reviews.map(review => showBook(review)));
   }
 
   render() {
@@ -59,35 +73,39 @@ export default class UserReviewTable extends Component {
       </div>
     );
   }
-
+  // "https://openlibrary.org/books/"
   // FOr some reason, this is not getting executed properly?? Returns nothing
   async getBookInfo(bid) {
-    let uri = 'http://openlibrary.org/books/' + bid + ".json";
-    const bookinfo =  await fetch(uri);
+    let uri = 'http://openlibrary.org/works/' + bid + ".json";
+    const bookinfo =  await fetch(uri, {Origin: "http://localho.st:3000"});
     if ( bookinfo.ok )
-        return await bookinfo.json();
+    {
+      let result = await bookinfo.json();
+      alert("successfully got info for " + bid + ": " + JSON.stringify(result));
+      return result;
+    }
     alert('fetch ' + uri + ' failed: ' + bookinfo.status);
     return null;
+  }
+
+  bookInfo = bid => {
+    fetch('http://openlibrary.org/works/' + bid + ".json", {Origin: "http://localho.st:3000"})
+      .then( res => res.json())
+      .catch(err => console.log(err));
   }
 
   async populateReviews() {
     let uri = 'http://localhost:5034/api/Review/UserReviews/' + this.user.userid;
     const response = await fetch(uri);
-    const data = await response.json();
-    //alert("retrieved reviews " + JSON.stringify(data));
+    let data = await response.json();
 
-    data.map(review => {
-        //alert("Call getBookInfo with " + review.bookid);
-        const bookdata =  this.getBookInfo(review.bookid);
-        if (bookdata == null || Object.keys(bookdata).length == 0 ) {
-            //alert("returned data is null");
-            return review;
-        }
-        else
-            return { ...review, title: bookdata.title, cover_i: bookdata.covers[0]}
+    var promises = data.map(o => {
+      this.bookInfo(o.bookid)
+      .then(b => {return { ...o, "title" : b.title}})
+      .catch(err => console.log(err)) 
     });
-
-    //alert("updated info: " + JSON.stringify(data));
+    //alert("retrieved reviews " + JSON.stringify(data));
+    //                        cover_img: "https://covers.openlibrary.org/b/id/" + obj.covers[0] + "-L.jpg"}
     this.setState({ user_reviews: data, loading: false });
   }
 }
