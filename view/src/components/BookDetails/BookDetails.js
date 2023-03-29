@@ -54,6 +54,31 @@ const BookDetails = () => {
   if(loading) return <Loading />;
 
 
+  const saveBook = () => {
+    fetch('http://localhost:5034/api/BookList', {
+        method: 'POST',
+        body: JSON.stringify({
+            userid: JSON.parse(localStorage.getItem("user")).userid,
+            bookid: id,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        mode:'cors',
+    })
+    .then((response) => {
+        response.json();
+    })
+    .then((data) => {
+      alert("book saved");
+    })
+    .catch((err) => {
+            console.log(err.message);
+            alert("Error saving book");
+    });
+  }
+
+
 
   
   return (
@@ -67,10 +92,7 @@ const BookDetails = () => {
         <div className='book-details-content grid'>
           <div className='book-details-img'>
             <img src = {book?.cover_img} alt = "cover img" />
-            <button className="save-book-button" onClick = {() => {
-                alert(`Are you sure you want to save this book ?`);
-              } 
-            }>Save Book</button>
+            <button className="save-book-button" onClick = {saveBook} >Save Book</button>
           </div>
           <div className='book-details-info'>
             <div className='book-details-item title'>

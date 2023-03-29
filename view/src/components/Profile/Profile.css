@@ -108,3 +108,21 @@
 .profile-input[type="button"]:hover {
   background-color: #3e8e41;
 }
+.remove-book-button {
+  background-color: #379555;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.delete-user-button {
+  background-color: #379555;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}

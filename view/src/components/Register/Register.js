@@ -40,7 +40,7 @@ const Register = () => {
 
     // Passes all input checks so post data to database
     // POST  
-    console.log("before fetch");
+    //console.log("before fetch");
     fetch('http://localhost:5034/api/User', {
         method: 'POST',
         body: JSON.stringify({
@@ -66,8 +66,9 @@ const Register = () => {
     .catch((err) => {
             console.log(err.message);
     });
-    console.log("after fetch");
-    navigate("/");
+    //console.log("after fetch");
+    alert("You have been registered. Please login.");
+    navigate("/login");
     //return true;
   };
 

@@ -7,10 +7,10 @@ const Book = (book) => {
     <div className='book-item flex flex-column flex-sb'>
       <div className='book-item-img'>
         <img src = {book.cover_img} alt = "cover" />
-        <button className="save-book-button" onClick = {() => {
+        {/* <button className="save-book-button" onClick = {() => {
               alert(`Are you sure you want to save this book ?`);
             }
-          }>Save Book</button>
+          }>Save Book</button> */}
       </div>
       <div className='book-item-info text-center'>
         <Link to = {`/book/${book.id}`} {...book}>
