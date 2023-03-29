@@ -5,13 +5,14 @@ import Button from '../Button'
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
-const ReviewSection=({bookid})=> {//passed book id into this function
+const ReviewSection=()=> {//passed book id into this function
   const [showAddReview,setShowAddReview]=useState(false);
   const [avgRating,setAvgRating] = useState(0);
   const [reviews, setReviews] = useState([]);
   const [uname, setUname] = useState('');
   const navigate = useNavigate();
   const udata = JSON.parse(localStorage.getItem("user"));
+  const bookid = window.location.pathname.split('/').pop();
 
  /* useEffect(() => {
     fetch(`http://localhost:5034/api/Review?bookid=${bookid}`)
@@ -45,10 +46,16 @@ const ReviewSection=({bookid})=> {//passed book id into this function
             additionalData: {uname}
           }
         });*/
-        setReviews(data);
-        const totalRating = data.reduce((acc, review) => acc + review.rating, 0);
-        const avgRating = (totalRating / data.length).toFixed(2);
+        //setReviews(data);
+        const bookReviews = data.filter(review => review.bookid === bookid);
+        setReviews(bookReviews);
+
+        const totalRating = bookReviews.reduce((acc, review) => acc + review.rating, 0);
+        const avgRating = (totalRating / bookReviews.length).toFixed(2);
         setAvgRating(avgRating);
+
+
+        
       })
       .catch(error => console.error(error));
     }, []);
@@ -164,6 +171,8 @@ const ReviewSection=({bookid})=> {//passed book id into this function
           {/*<h2>{getUsername(review.userid)}</h2>*/}
           {/*<h2>{review.username}</h2>*/}
           <h2>{review.userid}</h2>
+          <h2>{bookid}</h2>
+          <h2>{review.bookid}</h2>
           
           
           <p className = 'beside'>Rating: 
