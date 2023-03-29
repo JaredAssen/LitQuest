@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{D1B4AA0E-E2D3-4DAA-9E1A-8CF8E8A635FA}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.LitQuestAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="LitQuestAPI/Controllers/UserController.cs">
+    <Files>
+      <File FileName="LitQuestAPI/Controllers/UserController.cs" Line="23" Column="10" />
+      <File FileName="LitQuestAPI/appsettings.json" />
+      <File FileName="LitQuestAPI/Models/User.cs" />
+      <File FileName="LitQuestAPI/Program.cs" />
+      <File FileName="LitQuestAPI/Controllers/ReviewController.cs" />
+      <File FileName="LitQuestAPI/Controllers/BookListController.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LitQuestAPI" expanded="True">
+            <Node name="LitQuestAPI" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="UserController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

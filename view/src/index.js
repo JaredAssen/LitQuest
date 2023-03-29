@@ -13,8 +13,8 @@ import BookDetails from './components/BookDetails/BookDetails'
 import LoginPage from './pages/LoginPage/LoginPage';
 import { AppProvider } from './context';
 
-window.loggedin = false;
-window.loggedUserId = '0'; // Use 0 for guest user
+//window.loggedin = false;
+//window.loggedUserId = '0'; // Use 0 for guest user
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

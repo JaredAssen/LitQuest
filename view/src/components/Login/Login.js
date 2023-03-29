@@ -20,8 +20,10 @@ const Login = () => {
           console.log(data);
           if (Object.keys(data).length > 0) {
             alert("Success");
-            window.loggedin = true;
-            window.loggedUserId = data[0].userid;
+            //window.loggedin = true;
+            //window.loggedUserId = data[0].userid;
+            let udata = JSON.stringify(data[0]);
+            localStorage.setItem("user", udata);
             // Route home
             navigate("/");
           } else {

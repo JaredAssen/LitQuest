@@ -88,6 +88,57 @@
           }
         }
       },
+      "Microsoft.AspNet.Razor/3.2.7": {
+        "runtime": {
+          "lib/net45/System.Web.Razor.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebPages/3.2.7": {
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.2.7",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Helpers.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          },
+          "lib/net45/System.Web.WebPages.Deployment.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          },
+          "lib/net45/System.Web.WebPages.Razor.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          },
+          "lib/net45/System.Web.WebPages.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebPages.Data/3.2.7": {
+        "runtime": {
+          "lib/net45/WebMatrix.Data.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebPages.WebData/3.2.7": {
+        "dependencies": {
+          "Microsoft.AspNet.WebPages.Data": "3.2.7"
+        },
+        "runtime": {
+          "lib/net45/WebMatrix.WebData.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          }
+        }
+      },
       "Microsoft.CSharp/4.7.0": {},
       "Microsoft.EntityFrameworkCore/7.0.3": {
         "dependencies": {
@@ -268,6 +319,14 @@
           }
         }
       },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.20105.407"
+          }
+        }
+      },
       "Microsoft.Win32.Registry/4.7.0": {
         "dependencies": {
           "System.Security.AccessControl": "4.7.0",
@@ -326,27 +385,27 @@
           "runtimes/win-x64/native/comerr64.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "4.1.0.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/gssapi64.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "4.1.0.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/k5sprt64.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "4.1.0.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/krb5_64.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "4.1.0.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/krbcc64.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "4.1.0.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -376,6 +435,11 @@
         }
       },
       "MySql.Web/8.0.32": {
+        "dependencies": {
+          "Microsoft.AspNet.WebPages": "3.2.7",
+          "Microsoft.AspNet.WebPages.WebData": "3.2.7",
+          "MySql.Data": "8.0.32.1"
+        },
         "runtime": {
           "lib/net452/MySql.Web.dll": {
             "assemblyVersion": "8.0.32.0",
@@ -403,7 +467,7 @@
           "runtimes/win-arm64/native/sni.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "4.6.25512.1"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -412,7 +476,7 @@
           "runtimes/win-x64/native/sni.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "4.6.25512.1"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -421,7 +485,7 @@
           "runtimes/win-x86/native/sni.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "4.6.25512.1"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -732,6 +796,34 @@
       "path": "k4os.hash.xxhash/1.0.6",
       "hashPath": "k4os.hash.xxhash.1.0.6.nupkg.sha512"
     },
+    "Microsoft.AspNet.Razor/3.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BpWEZ+Ys7g9VAkbAfpG5jr5A1fKcmadCCXv3fYfps5YfTVABJIGV4uc9yvmXKxsNsjL+BzDld2gs+xtgT2gg1g==",
+      "path": "microsoft.aspnet.razor/3.2.7",
+      "hashPath": "microsoft.aspnet.razor.3.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages/3.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2jwZFB7PvY+tbdz0ZP4iEo7gMrJxkCQUzoGLh6swUc6ZXl6DoKyDslmGcC/j9PFmJXCRMVIqtRorlPSMU2DuRA==",
+      "path": "microsoft.aspnet.webpages/3.2.7",
+      "hashPath": "microsoft.aspnet.webpages.3.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages.Data/3.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wRnglowAe94/SMZpwEYKfXLe6U0yYu4bxMOBPIZyBAH0WE8m8I3wU43p7ZTOCTfOLWHalJ3cvN73Y23BBZqPbg==",
+      "path": "microsoft.aspnet.webpages.data/3.2.7",
+      "hashPath": "microsoft.aspnet.webpages.data.3.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages.WebData/3.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AxvuTZdF1Z216x0ErUw/84QNsf42PuSFr0V3tUAzm8v0tVdg2SYTgRRxF9TgTRfkG3RA1Om5dmlyS3x3/MYotQ==",
+      "path": "microsoft.aspnet.webpages.webdata/3.2.7",
+      "hashPath": "microsoft.aspnet.webpages.webdata.3.2.7.nupkg.sha512"
+    },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",
       "serviceable": true,
@@ -878,6 +970,13 @@
       "sha512": "sha512-Nug3rO+7Kl5/SBAadzSMAVgqDlfGjJZ0GenQrLywJ84XGKO0uRqkunz5Wyl0SDwcR71bAATXvSdbdzPrYRYKGw==",
       "path": "microsoft.openapi/1.2.3",
       "hashPath": "microsoft.openapi.1.2.3.nupkg.sha512"
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "path": "microsoft.web.infrastructure/1.0.0",
+      "hashPath": "microsoft.web.infrastructure.1.0.0.nupkg.sha512"
     },
     "Microsoft.Win32.Registry/4.7.0": {
       "type": "package",

@@ -12,8 +12,8 @@ using LitQuestAPI.Models;
 
 namespace LitQuestAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ReviewController : ControllerBase
     {
 
@@ -36,6 +36,20 @@ namespace LitQuestAPI.Controllers
         public async Task<ActionResult<IEnumerable<Review>>> GetReview(string bookid)
         {
             var Review = await _context.Reviews.Where(s => s.Bookid == bookid).ToListAsync();
+
+            if (Review == null)
+            {
+                return NotFound();
+            }
+
+            return Review;
+        }
+
+        // GET api/Review/1234567890123
+        [HttpGet("{userid}")]
+        public async Task<ActionResult<IEnumerable<Review>>> GetReview(int userid)
+        {
+            var Review = await _context.Reviews.Where(s => s.Userid == userid).ToListAsync();
 
             if (Review == null)
             {

@@ -120,6 +120,9 @@ public partial class LitquestContext : DbContext
             entity.Property(e => e.Username)
                 .HasMaxLength(20)
                 .HasColumnName("username");
+            entity.Property(e => e.About)
+                .HasMaxLength(50)
+                .HasColumnName("about");
         });
 
         OnModelCreatingPartial(modelBuilder);
