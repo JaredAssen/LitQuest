@@ -14,12 +14,13 @@ const AddReview = ({onAdd}) => {
   const navigate = useNavigate();
   const [replaceFlag, setReplaceFlag] = useState(0);
   const [existingReviewID, setExistingReviewID] = useState(0);
+  const bookid = window.location.pathname.split('/').pop();
 
   //check if user already has a review
-  fetch(`http://localhost:5034/api/Review?bookid=${window.location.pathname.split('/').pop()}`)
+  fetch(`http://localhost:5034/api/Review?bookid=${bookid}`)
   .then(response => response.json())
   .then(data => {
-    const userReview = data.find(review => review.userid === uid);
+    const userReview = data.find(review => review.userid === uid && review.bookid === bookid);
     if (userReview) {
       setReplaceFlag(1);
       setExistingReviewID(userReview.reviewid);
