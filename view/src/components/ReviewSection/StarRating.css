@@ -1,0 +1,16 @@
+@import url('https://use.fontawesome.com/releases/v5.15.3/css/all.css');
+.star-rating {
+    font-size: 2rem; /* adjust the font size as needed */
+}
+  
+.star-rating i {
+    color: #f9b119; /* set the color of the star icons */
+}
+  
+.star-rating i:not(:last-child) {
+    margin-right: 0.5rem; /* add a small margin between the star icons */
+}
+.beside {
+    display: flex;
+    align-items: center;
+}
