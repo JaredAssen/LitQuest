@@ -49,31 +49,34 @@ public partial class LitquestContext : DbContext
                 .HasColumnName("password");
         });
 
-        modelBuilder.Entity<Book>(entity =>
-        {
-            entity.HasKey(e => new { e.Bookid, e.Listname }).HasName("PRIMARY");
+        //modelBuilder.Entity<Book>(entity =>
+        //{
+        //    entity.HasKey(e => new { e.Bookid, e.Listname }).HasName("PRIMARY");
 
-            entity.ToTable("books");
+        //    entity.ToTable("books");
 
-            entity.HasIndex(e => e.Listname, "fk_books_booklist_idx");
+        //    entity.HasIndex(e => e.Listname, "fk_books_booklist_idx");
 
-            entity.Property(e => e.Bookid).HasColumnName("bookid");
-            entity.Property(e => e.Listname)
-                .HasMaxLength(45)
-                .HasColumnName("listname");
-        });
+        //    entity.Property(e => e.Bookid).HasColumnName("bookid");
+        //    entity.Property(e => e.Listname)
+        //        .HasMaxLength(45)
+        //        .HasColumnName("listname");
+        //});
 
         modelBuilder.Entity<Booklist>(entity =>
         {
-            entity.HasKey(e => new { e.Listname, e.Userid }).HasName("PRIMARY");
+            //entity.HasKey(e => new { e.Listname, e.Userid }).HasName("PRIMARY");
+            entity.HasKey(e => new { e.Bookid, e.Userid }).HasName("PRIMARY");
 
             entity.ToTable("booklist");
 
             entity.HasIndex(e => e.Userid, "fk_user_idx");
 
-            entity.Property(e => e.Listname)
+            //entity.Property(e => e.Listname)
+            entity.Property(e => e.Bookid)
                 .HasMaxLength(45)
-                .HasColumnName("listname");
+                //.HasColumnName("listname");
+                .HasColumnName("bookid");
             entity.Property(e => e.Userid).HasColumnName("userid");
 
             entity.HasOne(d => d.User).WithMany(p => p.Booklists)
