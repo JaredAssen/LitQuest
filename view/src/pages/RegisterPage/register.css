@@ -31,7 +31,7 @@
     background: linear-gradient(to right, #FFAFBD, #C9FFBF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-text 3s ease-in-out infinite;
+    /*animation: gradient-text 3s ease-in-out infinite;*/
   }
   
   .login-form {
@@ -66,12 +66,12 @@
   .login-input[type="email"] {
     border: none;
     border-radius: 5px;
-    /*padding: 10px;*/
-    /*margin-bottom: 20px;*/
+    padding: 10px;
+    margin-bottom: 20px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    min-width: 100%;
+    /*min-width: 100%;
     width: 100%;
-    /*background-image: url('download.jpg');
+    background-image: url('download.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
