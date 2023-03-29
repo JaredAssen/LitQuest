@@ -26,11 +26,11 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `about` varchar(50),
   `userid` int NOT NULL AUTO_INCREMENT,
+  `about` varchar(280) DEFAULT NULL,
   PRIMARY KEY (`userid`),
-  UNIQUE(`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('TestUser1','123','testUser1@gmail.com',1,'I am a test user that loves to read. I enjoy reading software testing textbooks and learning.'),('TestUser2','123','TestUser2@gmail.com',2,NULL),('TestUser4','123','temp',9,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-13 11:01:59
+-- Dump completed on 2023-03-29 12:55:20
