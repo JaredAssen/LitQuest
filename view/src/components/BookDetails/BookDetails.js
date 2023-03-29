@@ -7,6 +7,7 @@ import {FaArrowLeft} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 //import Rating from "../ReviewSection/Rating";
 import ReviewSection from '../ReviewSection/ReviewSection';
+import Recommendations from '../Recommendations/Recommendations';
 
 const URL = "https://openlibrary.org/works/";
 
@@ -93,7 +94,8 @@ const BookDetails = () => {
             </div>
             
             <div>
-              <ReviewSection bookid={id} />
+                          <ReviewSection bookid={id} />
+                          <Recommendations />
             </div>
           </div>
         </div>

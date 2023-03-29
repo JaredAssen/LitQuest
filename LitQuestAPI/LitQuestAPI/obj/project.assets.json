@@ -3511,24 +3511,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/willperks/.nuget/packages/": {}
+    "C:\\Users\\sinat\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/willperks/Sites/LitQuest/LitQuestAPI/LitQuestAPI/LitQuestAPI.csproj",
+      "projectUniqueName": "C:\\Users\\sinat\\OneDrive\\Desktop\\UNI\\CPSC 471\\Final Proj\\LitQuest\\LitQuestAPI\\LitQuestAPI\\LitQuestAPI.csproj",
       "projectName": "LitQuestAPI",
-      "projectPath": "/Users/willperks/Sites/LitQuest/LitQuestAPI/LitQuestAPI/LitQuestAPI.csproj",
-      "packagesPath": "/Users/willperks/.nuget/packages/",
-      "outputPath": "/Users/willperks/Sites/LitQuest/LitQuestAPI/LitQuestAPI/obj/",
+      "projectPath": "C:\\Users\\sinat\\OneDrive\\Desktop\\UNI\\CPSC 471\\Final Proj\\LitQuest\\LitQuestAPI\\LitQuestAPI\\LitQuestAPI.csproj",
+      "packagesPath": "C:\\Users\\sinat\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sinat\\OneDrive\\Desktop\\UNI\\CPSC 471\\Final Proj\\LitQuest\\LitQuestAPI\\LitQuestAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/willperks/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\sinat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3593,7 +3595,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   },

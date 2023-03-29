@@ -1,6 +1,6 @@
 import React,{useState,useContext,useEffect} from 'react';
 import { useCallback } from 'react';
-const URL = "http://openlibrary.org/search.json?title=";
+const URLA = "http://openlibrary.org/search.json?author=";
 const AppContext = React.createContext();
 
 const AppProvider = ({children})=>{
@@ -12,7 +12,7 @@ const AppProvider = ({children})=>{
     const fetchBooks = useCallback(async () => {
         setLoading(true);
         try {
-                const response = await fetch(`${URL}${searchTerm}`);
+                const response = await fetch(`${URLA}${searchTerm}`);
                 const data = await response.json();
                 const { docs } = data;
                 console.log(data);
@@ -36,7 +36,7 @@ const AppProvider = ({children})=>{
                     setBooks(newBooks);
 
                     if (newBooks.length > 1) {
-                        setResultTitle('Your Search Result');
+                        setResultTitle('Recommended Books');
                     }
                     /*else{
                         setResultTitle('No Search Result Found!');
