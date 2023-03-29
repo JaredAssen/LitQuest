@@ -39,6 +39,18 @@ namespace LitQuestAPI.Controllers
             return user;
         }
 
+        [HttpGet("{userid}")]
+        public async Task<ActionResult<IEnumerable<User>>> GetUserWithid(int userid)
+        {
+            var user = await _context.Users.Where(s => s.Userid == userid).ToListAsync();
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
+        }
+
         // POST api/<ValuesController>
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User User)
@@ -99,7 +111,7 @@ namespace LitQuestAPI.Controllers
 
 
 
-        // DELETE api/<ValuesController>/5
+        // DELETE api/User/5
         [HttpDelete("{userid}")]
         public async Task<IActionResult> DeleteUser(int userid)
         {

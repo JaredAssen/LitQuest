@@ -4,29 +4,36 @@ import './Navbar.css';
 import logo from '../../images/logo.jpg';
 import {HiOutlineMenuAlt3} from 'react-icons/hi';
 import Login from '../Login/Login';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [toggleMenu,setToggleMenu] = useState(false);
   const handleNavBar = () => setToggleMenu(!toggleMenu);
+  const navigate = useNavigate();
 
   const logout = () => {
     console.log("logout");
-    window.loggedin = false;
-    window.loggedUserId = '0';
+    //window.loggedin = false;
+    //window.loggedUserId = '0';
     localStorage.removeItem("user");
     localStorage.removeItem("loggedin");
-    window.location.reload();
+    localStorage.removeItem("bookids");
+    localStorage.removeItem("booInfo");
+    //window.location.reload(false);
+    setTimeout(() => {
+      navigate('/')
+    }, 1)
   }
 
   const checkLogin = () => {
     // localStorage survives browser refresh while window variable does not
     let udata = localStorage.getItem("user");
     if(!udata){
-      localStorage.removeItem("user");
+      //localStorage.removeItem("user");
       return <Link to = '/login' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Login</Link> 
     }
     else{
-      return <Link to = '/' className='nav-link text-uppercase text-white fs-22 fw-6 ls-1' onClick={logout}>Logout</Link>
+      return <Link className='nav-link text-uppercase text-white fs-22 fw-6 ls-1' onClick={logout}>Logout</Link>
     }
   }
 

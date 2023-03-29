@@ -1,0 +1,27 @@
+.booklist {
+    /*max-width: 600px;*/
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #caae8d;
+    font-family: Arial, sans-serif;
+  }
+
+.remove-book-button {
+    background-color: #379555;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .view-btn {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
