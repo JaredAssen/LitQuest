@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\LitQuestAPI",
+    "\\LitQuestAPI\\LitQuestAPI",
+    "\\LitQuestAPI\\LitQuestAPI\\Controllers",
+    "\\view",
+    "\\view\\src",
+    "\\view\\src\\components",
+    "\\view\\src\\components\\Profile"
+  ],
+  "SelectedNode": "\\LitQuestAPI\\LitQuestAPI\\appsettings.json",
+  "PreviewInSolutionExplorer": false
+}

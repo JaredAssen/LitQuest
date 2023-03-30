@@ -170,7 +170,7 @@ const ReviewSection=()=> {//passed book id into this function
           
           {/*<h2>{getUsername(review.userid)}</h2>*/}
           {/*<h2>{review.username}</h2>*/}
-          <h2>{review.userid}</h2>
+          {/*<h2>{review.userid}</h2>*/}
           
           
           <p className = 'beside'>Rating: 
