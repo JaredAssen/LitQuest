@@ -86,8 +86,9 @@ const AddReview = ({onAdd}) => {
         console.error('Error updating review:', error);
         // Handle the error
       });
+
     }
-    //window.location.reload();
+
     
 
 /*

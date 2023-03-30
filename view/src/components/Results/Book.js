@@ -13,7 +13,8 @@ const Book = (book) => {
           }>Save Book</button> */}
       </div>
       <div className='book-item-info text-center'>
-        <Link to = {`/book/${book.id}`} {...book}>
+        <Link to = {`/book/${book.id}`} {...book} state={book.author.join(", ")}>
+          {/* {console.log(book.author.join(", "))} */}
           <div className='book-item-info-item title fw-7 fs-18'>
             <span>{book.title}</span>
           </div>
