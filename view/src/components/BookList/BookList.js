@@ -172,8 +172,7 @@ const bookInfo = [];
             // <li key={index}>{bInfo.cover_img}</li>
             <div>
                 {/* <li key={index}>{bInfo.title}</li> */}
-                <Link to = {
-                    `/book/${JSON.parse(localStorage.getItem("bookids"))[index]}`} {...revbInfo}>
+                <Link to = {`/book/${JSON.parse(localStorage.getItem("bookids"))[index]}`} {...revbInfo}  state={"James Patterson"}>
                     <div className='book-item-info-item title fw-7 fs-18'>
                     <span>{revbInfo.title}</span>
                     </div>

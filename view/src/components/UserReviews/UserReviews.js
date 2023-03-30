@@ -76,7 +76,7 @@ const UserReviews = () => {
             return (
                 <div>
                 <Link to = {
-                    `/book/${reviews.bookid}`}>
+                    `/book/${reviews.bookid}`} state={"James Patterson"}>
                     <div className='book-item-info-item title fw-7 fs-18'>
                     <span>{reviews.bookid}</span>
                     </div>
