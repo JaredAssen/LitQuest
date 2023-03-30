@@ -11,7 +11,8 @@ import coverImg from "../../images/cover_not_found.jpg";
 
 const Recommendations = (authors) => {
     const { books, loading, resultTitle, setSearchTerm } = useGlobalRecommendContext();
-    setSearchTerm("Michael Crichton");
+    console.log(authors);
+    setSearchTerm(authors.authors);
     const booksWithCovers = books.map((singleBook) => {
         return {
             ...singleBook,

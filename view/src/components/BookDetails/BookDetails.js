@@ -8,17 +8,19 @@ import { useNavigate } from 'react-router-dom';
 //import Rating from "../ReviewSection/Rating";
 import ReviewSection from '../ReviewSection/ReviewSection';
 import Recommendations from '../Recommendations/Recommendations';
+import { useLocation } from 'react-router-dom'
 
 const URL = "https://openlibrary.org/works/";
 
 
 
-const BookDetails = () => {
+const BookDetails = (props) => {
   const {id} = useParams();
   const [loading, setLoading] = useState(false);
   const [book, setBook] = useState(null);
   const navigate = useNavigate();
-
+  const location = useLocation()
+// console.log(location.state);
   useEffect(() => {
     setLoading(true);
     async function getBookDetails(){
@@ -94,9 +96,10 @@ const BookDetails = () => {
             </div>
             
             <div>
+              {console.log(location.state)}
               {/*<ReviewSection bookid={id} />*/}
               <ReviewSection />
-              <Recommendations />
+              <Recommendations authors = {location.state}/>
             </div>
           </div>
         </div>

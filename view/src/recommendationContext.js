@@ -15,7 +15,7 @@ const RecommendProvider = ({children})=>{
             const response = await fetch(`${URL}${searchTerm}`);
             const data = await response.json();
             const {docs} = data;
-            console.log(data);
+            //console.log("TheData: "+JSON.stringify(data));
 
             if(docs){
                 const newBooks = docs.slice(0,20).map((bookSingle)=>{
@@ -34,7 +34,6 @@ const RecommendProvider = ({children})=>{
 
                 });
                 setBooks(newBooks);
-
                 if(newBooks.length > 1){
                     setResultTitle('Recommendations');
                 }
