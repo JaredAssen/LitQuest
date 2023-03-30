@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/LitQuest/static/css/main.767db86f.css",
+    "main.js": "/LitQuest/static/js/main.5b6b8d53.js",
+    "static/media/book-image.jpg": "/LitQuest/static/media/book-image.8ad94c2a10c9d5eb6895.jpg",
+    "static/media/download.jpg": "/LitQuest/static/media/download.8ad94c2a10c9d5eb6895.jpg",
+    "static/media/logo.jpg": "/LitQuest/static/media/logo.973f597eca5be47a83fc.jpg",
+    "static/media/cover_not_found.jpg": "/LitQuest/static/media/cover_not_found.69846940c7af3e651508.jpg",
+    "index.html": "/LitQuest/index.html",
+    "static/media/loader.svg": "/LitQuest/static/media/loader.6c0828960ed1bbaa70bea73dd9dcb56e.svg",
+    "main.767db86f.css.map": "/LitQuest/static/css/main.767db86f.css.map",
+    "main.5b6b8d53.js.map": "/LitQuest/static/js/main.5b6b8d53.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.767db86f.css",
+    "static/js/main.5b6b8d53.js"
+  ]
+}
