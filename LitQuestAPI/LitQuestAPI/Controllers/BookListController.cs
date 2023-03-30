@@ -31,11 +31,10 @@ namespace LitQuestAPI.Controllers
 
         }
 
-        // GET api/Booklist/1/MyList1
-        [HttpGet("{userid}/{listname}")]
-        public async Task<ActionResult<IEnumerable<Booklist>>> GetBooklist(int userid, string listname)
+        [HttpGet("{userid}")]
+        public async Task<ActionResult<IEnumerable<Booklist>>> GetBooklist(int userid)
         {
-            var Booklist = await _context.Booklists.Where(s => s.Listname == listname && s.Userid == userid).ToListAsync();
+            var Booklist = await _context.Booklists.Where(s => s.Userid == userid).ToListAsync();
 
             if (Booklist == null)
             {
@@ -44,6 +43,20 @@ namespace LitQuestAPI.Controllers
 
             return Booklist;
         }
+
+        // GET api/Booklist/1/MyList1
+        //[HttpGet("{userid}/{listname}")]
+        //public async Task<ActionResult<IEnumerable<Booklist>>> GetBooklist(int userid, string listname)
+        //{
+        //    var Booklist = await _context.Booklists.Where(s => s.Listname == listname && s.Userid == userid).ToListAsync();
+
+        //    if (Booklist == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Booklist;
+        //}
 
         // POST api/Booklist
         [HttpPost]
@@ -56,7 +69,7 @@ namespace LitQuestAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (BooklistExists(Booklist.Listname, Booklist.Userid))
+                if (BooklistExists(Booklist.Bookid, Booklist.Userid))
                 {
                     return Conflict();
                 }
@@ -66,14 +79,14 @@ namespace LitQuestAPI.Controllers
                 }
             }
 
-            return CreatedAtAction("GetBooklist", new { listname = Booklist.Listname }, Booklist);
+            return CreatedAtAction("GetBooklist", new { Bookid = Booklist.Bookid }, Booklist);
         }
 
-        // DELETE api/Booklist/5/MyList1
-        [HttpDelete("{userid}/{listname}")]
-        public async Task<IActionResult> DeleteBooklist(int userid, string listname)
+        // DELETE api/Booklist/OB777FV/1
+        [HttpDelete("{bookid}/{userid}")]
+        public async Task<IActionResult> DeleteBooklist(string bookid, int userid)
         {
-            var Booklist = await _context.Booklists.FindAsync(userid, listname);
+            var Booklist = await _context.Booklists.FindAsync(bookid,userid);
             if (Booklist == null)
             {
                 return NotFound();
@@ -85,9 +98,9 @@ namespace LitQuestAPI.Controllers
             return NoContent();
         }
 
-        private bool BooklistExists(string listname, int userid)
+        private bool BooklistExists(string bookid, int userid)
         {
-            return _context.Booklists.Any(e => e.Listname == listname && e.Userid == userid);
+            return _context.Booklists.Any(e => e.Bookid == bookid && e.Userid == userid);
         }
     }
 }

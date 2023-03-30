@@ -12,13 +12,15 @@ import Results from './components/Results/Results';
 import BookDetails from './components/BookDetails/BookDetails'
 import LoginPage from './pages/LoginPage/LoginPage';
 import { AppProvider } from './context';
-
+import { RecommendProvider } from './recommendationContext';
+import Recommendations from './components/Recommendations/Recommendations';
 //window.loggedin = false;
 //window.loggedUserId = '0'; // Use 0 for guest user
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AppProvider>
+    <RecommendProvider>
     <BrowserRouter>
       <Routes>
         <Route path = "/" element = {<HomePage />}>
@@ -32,8 +34,10 @@ root.render(
       </Routes>
 
     </BrowserRouter>
-
+    </RecommendProvider>
   </AppProvider>
+
+  
 
 );
 

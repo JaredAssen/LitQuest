@@ -23,9 +23,9 @@ DROP TABLE IF EXISTS `booklist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `booklist` (
-  `listname` varchar(45) NOT NULL,
+  `bookid` varchar(45) NOT NULL,
   `userid` int NOT NULL,
-  PRIMARY KEY (`listname`,`userid`),
+  PRIMARY KEY (`userid`,`bookid`),
   KEY `fk_user_idx` (`userid`),
   CONSTRAINT `fk_booklist_user` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -37,6 +37,7 @@ CREATE TABLE `booklist` (
 
 LOCK TABLES `booklist` WRITE;
 /*!40000 ALTER TABLE `booklist` DISABLE KEYS */;
+INSERT INTO `booklist` VALUES ('OL21177W',1),('OL21501229W',1),('OL24574391W',2);
 /*!40000 ALTER TABLE `booklist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-13 11:01:59
+-- Dump completed on 2023-03-29 12:55:20

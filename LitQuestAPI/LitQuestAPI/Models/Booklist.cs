@@ -5,7 +5,7 @@ namespace LitQuestAPI.Models;
 
 public partial class Booklist
 {
-    public string Listname { get; set; } = null!;
+    public string Bookid { get; set; } = null!;
 
     public int Userid { get; set; }
 

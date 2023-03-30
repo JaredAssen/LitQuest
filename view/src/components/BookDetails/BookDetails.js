@@ -7,24 +7,27 @@ import {FaArrowLeft} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 //import Rating from "../ReviewSection/Rating";
 import ReviewSection from '../ReviewSection/ReviewSection';
+import Recommendations from '../Recommendations/Recommendations';
+import { useLocation } from 'react-router-dom'
 
 const URL = "https://openlibrary.org/works/";
 
 
 
-const BookDetails = () => {
+const BookDetails = (props) => {
   const {id} = useParams();
   const [loading, setLoading] = useState(false);
   const [book, setBook] = useState(null);
   const navigate = useNavigate();
-
+  const location = useLocation()
+// console.log(location.state);
   useEffect(() => {
     setLoading(true);
     async function getBookDetails(){
       try{
         const response = await fetch(`${URL}${id}.json`);
         const data = await response.json();
-        //console.log(data);
+        console.log(data);
 
         if(data){
           const {description, title, covers, subject_places, subject_times, subjects} = data;
@@ -34,7 +37,7 @@ const BookDetails = () => {
             cover_img: covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,
             subject_places: subject_places ? subject_places.join(", ") : "No subject places found",
             subject_times : subject_times ? subject_times.join(", ") : "No subject times found",
-            subjects: subjects ? subjects.join(", ") : "No subjects found"
+            subjects: subjects ? subjects.join(", ") : "No subjects found",
           };
           setBook(newBook);
         } else {
@@ -93,7 +96,10 @@ const BookDetails = () => {
             </div>
             
             <div>
-              <ReviewSection bookid={id} />
+              {console.log(location.state)}
+              {/*<ReviewSection bookid={id} />*/}
+              <ReviewSection />
+              <Recommendations authors = {location.state}/>
             </div>
           </div>
         </div>

@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "cbc8cae2-6660-4419-8e91-b6745c643b2c",
+		"name": "LitQuest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20096532"
+	},
+	"item": [
+		{
+			"name": "Add a review test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Userid\":\"1\",\r\n    \"Text\":\"Test review!\",\r\n    \"Rating\":\"5\",\r\n    \"Bookid\":\"OL27448W\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5034/api/Review",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5034",
+					"path": [
+						"api",
+						"Review"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Review",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5034/api/Review/1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5034",
+					"path": [
+						"api",
+						"Review",
+						"1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all books with bookid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5034/api/Review/BookReviews/OL27448W",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5034",
+					"path": [
+						"api",
+						"Review",
+						"BookReviews",
+						"OL27448W"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Username\":\"TestUser1\",\r\n    \"Password\":\"123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5034/api/User",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5034",
+					"path": [
+						"api",
+						"User"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book from booklist",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5034/api/Booklist/OL21501229W/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5034",
+					"path": [
+						"api",
+						"Booklist",
+						"OL21501229W",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Review",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5034/api/Review/1/OL27448W",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5034",
+					"path": [
+						"api",
+						"Review",
+						"1",
+						"OL27448W"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5034/api/User/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5034",
+					"path": [
+						"api",
+						"User",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5034/api/User/TestUser1/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5034",
+					"path": [
+						"api",
+						"User",
+						"TestUser1",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Users booklist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5034/api/BookList/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5034",
+					"path": [
+						"api",
+						"BookList",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Book to BookList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Userid\":\"1\",\r\n    \"Bookid\":\"OL21177W\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5034/api/BookList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5034",
+					"path": [
+						"api",
+						"BookList"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
