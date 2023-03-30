@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/willperks/Sites/LitQuest/LitQuestAPI/LitQuestAPI/LitQuestAPI.csproj": {}
+    "C:\\Users\\eyeball2\\Desktop\\SENG401\\LitQuest\\LitQuestAPI\\LitQuestAPI\\LitQuestAPI.csproj": {}
   },
   "projects": {
-    "/Users/willperks/Sites/LitQuest/LitQuestAPI/LitQuestAPI/LitQuestAPI.csproj": {
+    "C:\\Users\\eyeball2\\Desktop\\SENG401\\LitQuest\\LitQuestAPI\\LitQuestAPI\\LitQuestAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/willperks/Sites/LitQuest/LitQuestAPI/LitQuestAPI/LitQuestAPI.csproj",
+        "projectUniqueName": "C:\\Users\\eyeball2\\Desktop\\SENG401\\LitQuest\\LitQuestAPI\\LitQuestAPI\\LitQuestAPI.csproj",
         "projectName": "LitQuestAPI",
-        "projectPath": "/Users/willperks/Sites/LitQuest/LitQuestAPI/LitQuestAPI/LitQuestAPI.csproj",
-        "packagesPath": "/Users/willperks/.nuget/packages/",
-        "outputPath": "/Users/willperks/Sites/LitQuest/LitQuestAPI/LitQuestAPI/obj/",
+        "projectPath": "C:\\Users\\eyeball2\\Desktop\\SENG401\\LitQuest\\LitQuestAPI\\LitQuestAPI\\LitQuestAPI.csproj",
+        "packagesPath": "C:\\Users\\eyeball2\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\eyeball2\\Desktop\\SENG401\\LitQuest\\LitQuestAPI\\LitQuestAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/willperks/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\eyeball2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -84,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
