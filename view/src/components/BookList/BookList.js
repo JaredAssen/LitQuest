@@ -73,7 +73,7 @@ const bookInfo = [];
         revbInfo = getRevBookInfoFromStorage();
         user = getUserFromStorage();
         const displayBookList = () =>  {
-            console.log("in displayBooklist");
+            //console.log("in displayBooklist");
             // fetch all the bookids in a users booklist
             if(user.userid === 0 ) return;
             const bookids = [];
@@ -96,8 +96,8 @@ const bookInfo = [];
           displayBookList();
     
       async function getBookDetails(){
-        console.log("in getBookDetails");
-        console.log("bids: "+JSON.stringify(JSON.parse(localStorage.getItem("bookids"))));
+        //console.log("in getBookDetails");
+        //console.log("bids: "+JSON.stringify(JSON.parse(localStorage.getItem("bookids"))));
         if(user.userid === 0 ) return;
         try{
           for (let i = 0; i < Object.keys(JSON.parse(localStorage.getItem("bookids"))).length; i++) {
@@ -139,7 +139,7 @@ const bookInfo = [];
    
 
     const removeBook = (index) => {
-        console.log("index: "+index);
+        //console.log("index: "+index);
         fetch(`http://localhost:5034/api/Booklist/${JSON.parse(localStorage.getItem("bookids"))[index]}/${JSON.parse(localStorage.getItem("user")).userid}`, {
         method: 'DELETE',
         })
