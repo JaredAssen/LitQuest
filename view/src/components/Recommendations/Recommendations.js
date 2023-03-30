@@ -11,8 +11,8 @@ import coverImg from "../../images/cover_not_found.jpg";
 
 const Recommendations = (authors) => {
     const { books, loading, resultTitle, setSearchTerm } = useGlobalRecommendContext();
-    console.log(authors);
-    setSearchTerm(authors.authors);
+    console.log(authors.authors.split(',')[0]);
+    setSearchTerm(authors.authors.split(',')[0]);
     const booksWithCovers = books.map((singleBook) => {
         return {
             ...singleBook,
